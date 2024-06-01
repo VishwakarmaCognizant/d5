@@ -1,0 +1,4 @@
+<h4>Select Coutry </h4>
+<select (change)="choice()">
+    <option *ngFor="let c of countryList" [value]="c.code">{{c.name}}</option>
+</select>

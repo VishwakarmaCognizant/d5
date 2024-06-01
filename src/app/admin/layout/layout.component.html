@@ -1,0 +1,45 @@
+<mat-toolbar>
+    <mat-toolbar-row>
+    Welcome To Admin Module
+    </mat-toolbar-row>
+  
+  
+    <mat-toolbar-row>
+  
+      <button mat-button [matMenuTriggerFor]="menu">Home</button>
+     <mat-menu #menu="matMenu">
+    <button mat-menu-item routerLink="/Admin/Admin">User List</button>
+    <button mat-menu-item routerLink="/Admin/Manage-User">View/Edit User</button>
+    <button mat-menu-item routerLink="/Admin/AddPublisher">Add Publisher</button>
+    <button mat-menu-item routerLink="/Admin/AddAuthor">Add Author</button>
+    <button mat-menu-item routerLink="/Admin/AddBookDetails">Add Book</button>
+     
+    
+  </mat-menu>
+  
+  
+  <mat-accordion style="margin-left:1100px;">
+    <img [src]="ProfileLogo" height="40px" width="40px">
+    <mat-expansion-panel hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+        <h3></h3><b>{{FullName }}</b>
+        </mat-panel-title>
+      
+      </mat-expansion-panel-header>
+       <p>{{UserType}}</p>
+      <button mat-menu-item routerLink="/">Logout</button>
+    </mat-expansion-panel>
+
+    
+  </mat-accordion>
+
+
+
+
+ </mat-toolbar-row>
+  
+  
+  
+    
+  </mat-toolbar>

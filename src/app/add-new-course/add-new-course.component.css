@@ -1,0 +1,34 @@
+img{
+    width: 400px;
+    height: 200px;
+}
+.lession-table{
+    min-height: 360px;
+    margin-top: 10px;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    tr:hover{
+        background: whitesmoke;
+        cursor: pointer;
+    }
+
+}
+.spinner-container mat-spinner{
+    margin: 130px auto 0 auto;
+}
+.mat-column-seqNo{
+    width: 32px;
+    border-right: 1px solid black;
+    padding-right: 24px;
+    text-align: center;
+}
+.mat-column-description
+{
+    padding-left: 20px;
+    text-align: left;
+}
+.mat-column-longdescription
+{
+    font-style:italic;
+}

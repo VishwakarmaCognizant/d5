@@ -1,0 +1,10 @@
+<div class="example-list" cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+    
+    <div class="example-box" cdkDrag *ngFor="let item of empList">
+
+        <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+        {{item.CompanyName}}
+    </div>
+        
+  
+</div>

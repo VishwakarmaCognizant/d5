@@ -1,0 +1,165 @@
+<app-layout></app-layout>
+<form [formGroup]="BookFormRegistration" (ngSubmit)="AddBookDetails();" autocomplete="off">
+<mat-card style="text-align: center;">
+    <mat-card-header>
+       <b>Add New Book</b> 
+    </mat-card-header>
+
+    <div *ngIf="ISpinnerSaveData" >
+        <h1 class="text-center">Please wait data loading</h1>
+        <app-spinner-progress></app-spinner-progress>
+      <!-- <mat-spinner class="text-center"></mat-spinner> -->
+      </div>
+    <mat-card-content>
+        <div class="row">
+            <div class="col-sm-12">
+            <mat-form-field>
+            <mat-label>Book Name</mat-label>
+            <input type="text" matInput formControlName="BookName">
+            </mat-form-field>
+        </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+            <mat-form-field>
+                <mat-label>Book Title</mat-label>
+                <input type="text" matInput formControlName="BookTitle">
+                </mat-form-field>
+           </div>
+           </div>
+           <div class="row">
+            <div class="col-sm-12">
+                <mat-form-field>
+                    <mat-label>Book Description</mat-label>
+                    <textarea type="text" matInput formControlName="BookDescription"></textarea>
+                    </mat-form-field>
+                </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+
+                        <mat-form-field>
+                            <mat-label>Select Author</mat-label>
+                            <mat-select formControlName="AuthorId">
+                              <mat-option *ngFor="let item of AuthorList" value={{item.id}}>{{item.authorName}}</mat-option>
+                             
+                            </mat-select>
+                          </mat-form-field>
+                        
+                        </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+
+
+                                <mat-form-field>
+                                    <mat-label>Select Publisher</mat-label>
+                                    <mat-select formControlName="PublisherId">
+                                        <mat-option *ngFor="let item of Publisherlist" value={{item.id}}>{{item.publisherName}}</mat-option>
+                          
+                                     
+                                    </mat-select>
+                                  </mat-form-field>
+
+                               
+                                </div>
+                                </div>
+
+                                <div class="row">
+                                  <div class="col-sm-12">
+                                    <input class="ng-hide" id="input-file-id" multiple type="file" (change)="UploadBookImageurl($event);" />
+                                   <img width="80px"
+                                    height="80px" [src]="UploadBookImage"
+                                    class="image"  />
+                                  </div>
+                                 </div>                 
+                
+                                 
+    </mat-card-content>
+    <mat-card-footer>
+        <button mat-raised-button [disabled]="!this.BookFormRegistration.valid" color="primary">Submit</button>
+       
+    </mat-card-footer>
+</mat-card>
+
+</form>
+
+ 
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="BookListDetails" class="mat-elevation-z8" style="width: 100%;">
+  
+        <ng-container matColumnDef="Sno">
+            <th mat-header-cell *matHeaderCellDef>Sno</th>
+            <td mat-cell *matCellDef="let element">{{element.sno}}</td>
+          
+          </ng-container>
+          <ng-container matColumnDef="bookName">
+            <th mat-header-cell *matHeaderCellDef>Book Name</th>
+            <td mat-cell *matCellDef="let element">{{element.bookName}}</td>
+          
+          </ng-container>
+          <ng-container matColumnDef="bookTitle">
+            <th mat-header-cell *matHeaderCellDef>Book Title</th>
+            <td mat-cell *matCellDef="let element">{{element.bookTitle}}</td>
+          
+          </ng-container>
+<ng-container matColumnDef="bookDescription">
+    <th mat-header-cell *matHeaderCellDef>Book Description</th>
+    <td mat-cell *matCellDef="let element">{{element.bookDescription}}</td>
+
+</ng-container>
+<ng-container matColumnDef="authorName">
+    <th mat-header-cell *matHeaderCellDef>Author Name</th>
+    <td mat-cell *matCellDef="let element">{{element.authorName}}</td>
+</ng-container>
+
+<ng-container matColumnDef="publishName">
+    <th mat-header-cell *matHeaderCellDef>Publish Name</th>
+    <td mat-cell *matCellDef="let element">{{element.publishName}}</td>
+</ng-container>
+ 
+<ng-container matColumnDef="contactNumber">
+    <th mat-header-cell *matHeaderCellDef>Contact Number</th>
+    <td mat-cell *matCellDef="let element">{{element.contactNumber}}</td>
+</ng-container>
+
+
+
+          <ng-container matColumnDef="Status">
+            <th mat-header-cell *matHeaderCellDef>Status</th>
+            <td mat-cell *matCellDef="let element">
+            
+              
+              <button mat-raised-button  color="primary">Active</button>
+
+                 </td>
+          
+          </ng-container>
+          <ng-container matColumnDef="Action">
+            <th mat-header-cell *matHeaderCellDef>Action</th>
+            <td mat-cell *matCellDef="let element"> 
+              <button mat-icon-button aria-label="" title="Edit">
+              <mat-icon>open_in_new</mat-icon>
+            </button> 
+            <button mat-fab color="primary" aria-label="" title="Delete">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+          </ng-container>
+  
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  
+    </table>
+    <mat-paginator [length]="100" [pageSize]="10"
+              [pageSizeOptions]="[1,2,5, 10, 25, 100]"
+              aria-label="Select page">
+  </mat-paginator>
+    </div>
+  
+  
+    <div *ngIf="!ISpinnerDataLoading" style="margin-top: -90px;">
+      <h1 class="text-center">Please wait data loading</h1>
+      <app-spinner-progress></app-spinner-progress>
+    <!-- <mat-spinner class="text-center"></mat-spinner> -->
+    </div>

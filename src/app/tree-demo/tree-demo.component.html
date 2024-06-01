@@ -1,0 +1,7 @@
+ 
+<mat-list class="scrolling-container mat-elevation-z7">
+    <cdk-virtual-scroll-viewport itemSize="2" class="scrolling-container">
+        <mat-list-item *cdkVirtualFor="let item of TREE_DATA">{{item.name}}</mat-list-item>
+    </cdk-virtual-scroll-viewport>
+   
+</mat-list>

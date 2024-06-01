@@ -1,0 +1,39 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>
+            <p>{{courseDetailsById.Description}}</p>
+        </mat-card-title>
+    </mat-card-header>
+    
+    <img mat-card-image src={{courseDetailsById.ImageURL}}>
+    <mat-card-content>
+        <p>{{courseDetailsById.LongDescription}}</p>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button color="primary" routerLink="/">>>Back To Course</button>
+    </mat-card-actions>
+
+
+   
+
+
+<table mat-table class="lession-table mat-elevation-z8" [dataSource]="CourseList">
+    <ng-container matColumnDef="seqNo">
+        <th mat-header-cell *matHeaderCellDef>Serial No.</th>
+        <td mat-cell *matCellDef="let CourseList">{{CourseList.id}}</td>
+    </ng-container>  
+    
+    <ng-container matColumnDef="Description">
+        <th mat-header-cell *matHeaderCellDef>Description</th>
+        <td mat-cell *matCellDef="let CourseList">{{CourseList.Description}}</td>
+    </ng-container> 
+    <ng-container matColumnDef="LongDescription">
+        <th mat-header-cell *matHeaderCellDef>Long Description</th>
+        <td mat-cell *matCellDef="let CourseList">{{CourseList.LongDescription}}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumn"></tr>
+    <tr mat-row *matRowDef="let CourseList;columns:displayedColumn"></tr>
+
+</table>
+</mat-card>

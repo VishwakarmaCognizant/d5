@@ -1,0 +1,13 @@
+<!-- <app-child-to-parent-comuncation [childdata]="ChildData"></app-child-to-parent-comuncation> -->
+<!-- <h4>Child Data {{notifydata}}</h4> -->
+
+
+<!-- <app-child-to-parent-comuncation (notifymessage)="childtoparent($event);"></app-child-to-parent-comuncation>
+
+<label>{{notifydata}}</label> -->
+<input type="text" [(ngModel)]="username" name="username" />
+<button type="button"  (click)="pushdata()">SendData</button>
+<app-child-to-parent-comuncation [product]="userList" [childdata]="username">
+    <h3  #titlepage id="titlepage">Todays Latest Product </h3>
+    <a href=""  id="link"> Please click here for buy now</a>
+</app-child-to-parent-comuncation>

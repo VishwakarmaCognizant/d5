@@ -1,0 +1,89 @@
+
+<mat-sidenav-container fullscreen>
+<mat-sidenav #sidebar>
+     <mat-nav-list (click)="sidebar.close();">
+        <a mat-list-item routerLink="/course">
+            <mat-icon>library_books</mat-icon>
+            <span>Courses</span>
+        </a>
+        <a mat-list-item routerLink="/about-us">
+            <mat-icon>question_answer</mat-icon>
+            <span>About</span>
+        </a>
+        <a mat-list-item routerLink="/Registration">
+            <mat-icon>person_add</mat-icon>
+            <span>Register</span>
+        </a>
+        <a mat-list-item routerLink="/Login">
+            <mat-icon>account_circle</mat-icon>
+            <span>Login</span>
+        </a>
+        <a mat-list-item routerLink="/drag-drop">
+            <mat-icon> drag_indicator</mat-icon>
+            <span>drag drop</span>
+        </a>
+        <a mat-list-item routerLink="/tree-demo">
+            <mat-icon>account_circle</mat-icon>
+        </a>
+     </mat-nav-list>
+
+</mat-sidenav>
+<mat-toolbar color="primary">
+<mat-icon (click)="sidebar.open()">menu</mat-icon>
+
+<button mat-button [matMenuTriggerFor]="dropdownmenu">
+    Screen
+</button>
+<mat-menu #dropdownmenu>
+    <button mat-menu-item routerLink="/about-us">About us</button>
+    <button mat-menu-item routerLink="/contact-us">Contact us</button>
+</mat-menu>
+
+
+<a mat-button routerLink="/contact-us">
+    <span>Contact us</span>
+</a>
+<a mat-button routerLink="/Registration">
+    <mat-icon>person_add</mat-icon>
+    <span>Register</span>
+</a>
+<a mat-button routerLink="/Login">
+    <mat-icon>account_circle</mat-icon>
+    <span>Login</span>
+</a>
+<a mat-button routerLink="/ParentComponent">
+
+    <mat-icon>person_add</mat-icon>
+    <span>Parent Child Component</span>
+</a>
+<a mat-button [routerLink]="['/ChildComponent',{
+outlet:{
+    'map':['map'],
+    'feedback':['feedback']
+}
+
+}]">
+    <mat-icon>person_add</mat-icon>
+    <span>Child TO Parent Component</span>
+</a>
+<a mat-button routerLink="/PipesComponent">
+<mat-icon>person_add</mat-icon>
+<span>Pipes Component</span>
+</a>
+
+</mat-toolbar>
+
+
+<router-outlet></router-outlet>
+<!-- 
+ <form [formGroup]="formDetails">
+<div>
+    <app-contact-us></app-contact-us>
+    <input  type="text" name="message" formControlName="message" >
+
+    <strong #strongid>Hi dhjkdhkd</strong>
+    <button type="button" mat-raised-button color="primary" (click)="getdatafromSubject()">Send</button>
+</div>
+</form> -->
+<strong #strongid></strong>
+</mat-sidenav-container>

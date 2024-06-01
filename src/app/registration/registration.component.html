@@ -1,0 +1,88 @@
+<form [formGroup]="RegistrationForm" (ngSubmit)="UserRegistration()" autocomplete="off" style="text-align:center;">
+    <mat-card>
+        <mat-card-header>
+            <mat-label>User Registration</mat-label>
+        </mat-card-header>
+        <mat-card-content>
+
+
+            <div class="row" style="width: 100%;">
+                <div class="col-sm-6">
+                    <mat-form-field>
+            <mat-label>First Name</mat-label>
+            <input type="text" matInput formControlName="FirstName" >
+            </mat-form-field>
+                </div>
+                <div class="col-sm-6">
+                    <mat-form-field>
+                        <mat-label>Last Name</mat-label>
+                        <input type="text" matInput formControlName="LastName">
+                        </mat-form-field>
+                </div>
+            </div>
+
+
+<div class="row" style="width: 100%;">
+    <!-- <div class="col-sm-6">
+        <mat-form-field>
+<mat-label>User Name</mat-label>
+<input type="text" matInput formControlName="UserName" >
+</mat-form-field>
+    </div> -->
+    <div class="col-sm-6">
+        <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input type="password" matInput formControlName="Password">
+            </mat-form-field>
+    </div>
+</div>
+
+<div class="row" style="width: 100%;">
+    <div class="col-sm-6">
+        <mat-form-field>
+<mat-label>Mobile Number</mat-label>
+<input type="text" matInput formControlName="Mobile" maxlength="10">
+</mat-form-field>
+    </div>
+    <div class="col-sm-6">
+        <mat-form-field>
+            <mat-label>Address</mat-label>
+            <textarea type="text" matInput formControlName="Address"></textarea>
+            </mat-form-field>
+    </div>
+</div>
+
+
+<div class="row" style="width: 100%;">
+    <div class="col-sm-6">
+    
+
+<mat-form-field color="accent">
+    <mat-label>Date Of Birth</mat-label>
+    <input matInput [matDatepicker]="picker1" formControlName="DateOfBirth">
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+    <mat-datepicker #picker1></mat-datepicker>
+  </mat-form-field> 
+
+
+    </div>
+    <div class="col-sm-6">
+        <mat-form-field>
+            <mat-label>Email Id</mat-label>
+            <input type="text" matInput formControlName="EmailId" />
+            </mat-form-field>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-sm-12">
+        <button mat-raised-button color="primary" [disabled]="!this.RegistrationForm.valid">Submit</button>
+       
+    </div>
+    <a routerLink="/Login">Click for Login</a>
+</div>
+        </mat-card-content>
+    </mat-card>
+</form>

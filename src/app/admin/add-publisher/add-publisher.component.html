@@ -1,0 +1,114 @@
+<app-layout></app-layout>
+
+
+<form [formGroup]="PublisherForm" (ngSubmit)="SavePublisherDetails();" autocomplete="off">
+<mat-card style="text-align: center;">
+    <mat-card-header>
+       <b>Add Publisher Name</b> 
+    </mat-card-header>
+    <mat-card-content>
+
+      <div *ngIf="ISpinnerSaveData" >
+        <h1 class="text-center">Please wait data loading</h1>
+        <app-spinner-progress></app-spinner-progress>
+      <!-- <mat-spinner class="text-center"></mat-spinner> -->
+      </div>
+      
+        <div class="row">
+            <div class="col-sm-12">
+        <mat-form-field>
+            <mat-label>Publisher Name</mat-label>
+            <input type="text" matInput formControlName="PublisherName">
+            </mat-form-field>
+        </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+            <mat-form-field>
+                <mat-label>Address</mat-label>
+                <input type="text" matInput formControlName="Address">
+                </mat-form-field>
+           </div>
+           </div>
+           <div class="row">
+            <div class="col-sm-12">
+                <mat-form-field>
+                    <mat-label>Contact No</mat-label>
+                    <input type="text" matInput formControlName="ContactNo" maxlength="10">
+                    </mat-form-field>
+                </div>
+                </div>
+                
+    </mat-card-content>
+    <mat-card-footer>
+        <button mat-raised-button color="primary" [disabled]="!this.PublisherForm.valid">Submit</button>
+       
+    </mat-card-footer>
+</mat-card>
+</form>
+
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="Publisherlist" class="mat-elevation-z8" style="width: 100%;">
+  
+        <ng-container matColumnDef="Sno">
+            <th mat-header-cell *matHeaderCellDef>Sno</th>
+            <td mat-cell *matCellDef="let element">{{element.id}}</td>
+          
+          </ng-container>
+          <ng-container matColumnDef="Publisher Name">
+            <th mat-header-cell *matHeaderCellDef>Publisher Name</th>
+            <td mat-cell *matCellDef="let element">{{element.publisherName}}</td>
+          
+          </ng-container>
+          <ng-container matColumnDef="Address">
+            <th mat-header-cell *matHeaderCellDef>Address</th>
+            <td mat-cell *matCellDef="let element">{{element.publisherAddress}}</td>
+          
+
+          </ng-container>
+          <ng-container matColumnDef="Contact No">
+            <th mat-header-cell *matHeaderCellDef>Contact No</th>
+            <td mat-cell *matCellDef="let element">{{element.contactNo}}
+            
+              
+              </td>
+          
+          </ng-container>
+          <ng-container matColumnDef="Creation Date">
+            <th mat-header-cell *matHeaderCellDef>Creation Date</th>
+            <td mat-cell *matCellDef="let element">{{element.creationDate}}
+            
+              
+              </td>
+          
+          </ng-container>
+
+         
+
+          <ng-container matColumnDef="Action">
+            <th mat-header-cell *matHeaderCellDef>Action</th>
+            <td mat-cell *matCellDef="let element"> 
+              <button mat-icon-button aria-label="" title="Edit" (click)="EditPublisherDetails(element.id);">
+              <mat-icon>open_in_new</mat-icon>
+            </button> 
+            <button mat-fab color="primary" aria-label="" title="Delete">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+          </ng-container>
+  
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  
+    </table>
+    <mat-paginator [length]="100" [pageSize]="10"
+              [pageSizeOptions]="[1,2,5, 10, 25, 100]"
+              aria-label="Select page">
+  </mat-paginator>
+    </div>
+    <div *ngIf="!ISpinnerDataLoading" style="margin-top: -90px;">
+      <h1 class="text-center">Please wait data loading</h1>
+      <app-spinner-progress></app-spinner-progress>
+    <!-- <mat-spinner class="text-center"></mat-spinner> -->
+    </div>
+  

@@ -1,0 +1,49 @@
+ 
+<router-outlet></router-outlet>
+ <app-layout></app-layout>
+
+ <mat-card>
+  <mat-card-header>
+    User Profile
+  </mat-card-header>
+<mat-card-content>
+ 
+<table style="width: 100%;">
+  <mat-form-field>
+    <mat-label><b>First Name</b> </mat-label>
+    <input matInput disabled="disabled" value={{UserDetails.FirstName}}>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label><b>Last Name</b></mat-label>
+    <input matInput disabled="disabled" value={{UserDetails.LastName}}>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label><b>Mobile</b></mat-label>
+    <input matInput disabled="disabled" value={{UserDetails.Mobile}}>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label><b>Address</b></mat-label>
+    <input matInput disabled="disabled" value={{UserDetails.Address}}>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label><b>Date Of Birth</b></mat-label>
+    <input matInput disabled="disabled" value={{UserDetails.DateOfBirth}}>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label><b>Email Id</b></mat-label>
+    <input matInput disabled="disabled" value={{UserDetails.EmailId}}>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label><b>User Type</b></mat-label>
+    <input matInput disabled="disabled" value={{UserDetails.UserType}}>
+  </mat-form-field>
+
+</table>
+</mat-card-content>
+
+ </mat-card>

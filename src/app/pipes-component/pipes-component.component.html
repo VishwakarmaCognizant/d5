@@ -1,0 +1,23 @@
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>Id</td>
+            <td>Name</td>
+            <td>Location</td>
+            <td>Salary</td>
+            <td>Dob</td>
+            <td>age</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let data of userData">
+        <td>{{data.id}}</td>
+        <td>{{data.name | uppercase}}</td>
+        <td>{{data.city | lowercase}}</td>
+        <td>{{data.salary | currency:'INR':"symbol"}}</td>
+        <td>{{data.dob |date:'dd/MM/yyyy' }}</td>
+        <td>{{data.dob | customPipe}}</td>
+        </tr>
+    </tbody>
+</table>

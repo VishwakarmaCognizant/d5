@@ -1,0 +1,39 @@
+
+<mat-toolbar>
+    <mat-toolbar-row>
+    Welcome To User Module
+    </mat-toolbar-row>
+    <mat-toolbar-row>
+  
+      <button mat-button [matMenuTriggerFor]="menu">User Menu</button>
+   <mat-menu #menu="matMenu">
+    <button mat-menu-item routerLink="/User/User">User</button>
+    <button mat-menu-item routerLink="/User/Home">Home</button>
+    <button mat-menu-item routerLink="/User/OrderList">Order List</button>
+    <button mat-menu-item routerLink="/User/OrderItems">Order Items</button>
+    <button mat-menu-item routerLink="/">Logout</button>
+    
+  </mat-menu>
+  
+  
+  <mat-accordion style="margin-left: 1200px;">
+    <mat-expansion-panel hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+        <h3></h3><b>{{FullName }}</b>
+        </mat-panel-title>
+      
+      </mat-expansion-panel-header>
+      <p>{{UserType}}</p>
+    </mat-expansion-panel>
+  </mat-accordion>
+  
+  
+    </mat-toolbar-row>
+  
+  
+  
+  
+  
+  
+  </mat-toolbar>

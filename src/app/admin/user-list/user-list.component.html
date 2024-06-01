@@ -1,0 +1,82 @@
+ 
+
+
+
+<div class="mat-elevation-z8">
+    <mat-form-field>
+      <input matInput placeholder="Filter" (keyup)="applyFilter('$event.target.value')">
+    </mat-form-field>
+  <table mat-table [dataSource]="UserListDetails" matSort  class="mat-elevation-z8" style="width: 100%;">
+  
+    <ng-container matColumnDef="sno">
+      <th mat-sort-header mat-header-cell *matHeaderCellDef>Sno</th>
+      <td mat-cell *matCellDef="let element">{{element.sno}}</td>
+    
+    </ng-container>
+   
+  <ng-container matColumnDef="name">
+    <th mat-sort-header mat-header-cell *matHeaderCellDef>First Name</th>
+    <td mat-cell *matCellDef="let element">{{element.name}}</td>
+  
+  </ng-container>
+  
+  
+  <ng-container matColumnDef="lastName">
+    <th mat-sort-header mat-header-cell *matHeaderCellDef> Last Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+  </ng-container>
+  
+  <!-- Weight Column -->
+  <ng-container matColumnDef="mobile">
+    <th mat-sort-header mat-header-cell *matHeaderCellDef> Mobile </th>
+    <td mat-cell *matCellDef="let element"> {{element.mobile}} </td>
+  </ng-container>
+  
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="dateOfBirth">
+    <th mat-sort-header mat-header-cell *matHeaderCellDef> Date Of Birth </th>
+    <td mat-cell *matCellDef="let element"> {{element.dateOfBirth}} </td>
+  </ng-container>
+  
+  <ng-container matColumnDef="address">
+    <th mat-sort-header mat-header-cell *matHeaderCellDef> Address </th>
+    <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+  </ng-container>
+  
+  <ng-container matColumnDef="userType">
+    <th mat-sort-header mat-header-cell *matHeaderCellDef> User Type </th>
+    <td mat-cell *matCellDef="let element"> {{element.userType}} </td>
+  </ng-container>
+  
+  <ng-container matColumnDef="Action">
+    <th mat-sort-header mat-header-cell *matHeaderCellDef>Action</th>
+    <td mat-cell *matCellDef="let element"> 
+      <button mat-icon-button aria-label="" title="Edit" (click)="EditUser(element.id)" >
+      <mat-icon>open_in_new</mat-icon>
+    </button> 
+    <button mat-fab color="primary" aria-label="" title="Delete" (click)="DeleteUser(element.id)">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </td>
+  </ng-container>
+  
+  
+  
+  
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  
+  
+  </table>
+  
+  <mat-paginator [length]="100" [pageSize]="10"
+                [pageSizeOptions]="[1,2,5, 10, 25, 100]"
+                aria-label="Select page">
+  </mat-paginator>
+  
+  </div>
+  <div *ngIf="!IsLoadData" style="margin-top: -90px;">
+    <h1 class="text-center">Please wait data loading</h1>
+    <app-spinner-progress></app-spinner-progress>
+  <!-- <mat-spinner class="text-center"></mat-spinner> -->
+  </div>
