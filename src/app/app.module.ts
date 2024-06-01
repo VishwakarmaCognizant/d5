@@ -51,6 +51,7 @@ import { PipesComponentComponent } from './pipes-component/pipes-component.compo
 import { CustomPipePipe } from './pipe/custom-pipe.pipe';
 import { ValidateURLGuard } from './AuthGaurd/validate-url.guard';
 import { CanActivateChildValidateURLGuard } from './AuthGaurd/can-activate-child-validate-url.guard';
+import { GitTestComponent } from './GitTest/git-test/git-test.component';
  
 
 @NgModule({
@@ -72,7 +73,8 @@ import { CanActivateChildValidateURLGuard } from './AuthGaurd/can-activate-child
     ChildToParentComuncationComponent,
     ParentToChildComponentComponent,
     PipesComponentComponent,
-    CustomPipePipe
+    CustomPipePipe,
+    GitTestComponent
   ],
   imports: [
     BrowserModule,FormsModule,AppRoutingModule,HttpClientModule,
